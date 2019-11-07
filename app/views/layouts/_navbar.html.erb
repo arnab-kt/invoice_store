@@ -9,21 +9,22 @@
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <%# <% if user_signed_in? %> %>
+
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Invoices", "#", class: "nav-link" %>
+            <%= link_to "Invoices", invoices_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Companies", "#", class: "nav-link" %>
+            <%= link_to "Companies", companies_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Logout", "#", class: "nav-link" %>
+            <%= link_to "Logout", logout_path, class: "nav-link" %>
           </li>
-        <%# <% else %> %>
+        <% else %>
           <li class="nav-item active">
             <a data-toggle="modal" class="open-addSignInDialog nav-link" href="#addSignInDialog">Sign In</a>
           </li>
-        <%# <% end %> %>
+        <% end %>
       </ul>
     </div>
   </div>
