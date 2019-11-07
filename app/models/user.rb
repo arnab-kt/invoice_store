@@ -4,8 +4,10 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
+
   validates :first_name, length: { maximum: 255 }
   validates :last_name, length: { maximum: 255 }
+
 
   def self.find_from_auth_hash(auth)
     where(email: auth.info.email).first
