@@ -1,0 +1,30 @@
+<div class="mb-4 mt-2 clearfix">
+  <h1 class="d-inline-block mb-0">countries</h1>
+  <%= link_to '<i class="fa fa-plus"></i> New country'.html_safe, new_admin_country_path, class: "pull-right new-country-icon" %>
+</div>
+<table class="table table-striped ml-auto mr-auto text-center">
+  <thead>
+    <tr class="thead-dark">
+      <th scope="col">S.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Status</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% serial_number = 1 %>
+    <% @countries.each do |country| %>
+      <tr>
+        <th scope="row"><%= serial_number %></th>
+        <td><%= country.name %></td>
+        <td><%= country.code %></td>
+        <td><%= country.active %></td>
+        <td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_admin_country_path(country) %></td>
+        <td><%= delete_link country_path(country) %></td>
+      </tr>
+      <% serial_number += 1 %>
+    <% end %>
+  </tbody>
+</table>
