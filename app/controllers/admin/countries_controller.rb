@@ -1,6 +1,6 @@
 class Admin::CountriesController < ApplicationController
-  before_action :require_admin
-  before_action :find_country, only: [:edit , :update, :destroy]
+  before_action :authenticate_user, :authenticate_admin_user
+  before_action :find_country, only: [:edit, :update, :destroy]
 
   def index
     @countries = Country.all
@@ -14,7 +14,7 @@ class Admin::CountriesController < ApplicationController
     @country = Country.new(country_params)
 
     if @country.save
-      redirect_to admin_countries_path, flash: { success: "Country added successfully" }
+      redirect_to admin_countries_path, flash: { success: "Successfully added a country" }
     else
       flash.now[:danger] = "Failed to add Country"
       render "new"
@@ -25,7 +25,7 @@ class Admin::CountriesController < ApplicationController
 
   def update
     if @country.update(country_params)
-      redirect_to admin_countries_path, flash: { success: "Country updated successfully" }
+      redirect_to admin_countries_path, flash: { success: "Successfully updated the country" }
     else
       flash[:danger] = "Failed to update country"
       render "edit"
@@ -37,17 +37,13 @@ class Admin::CountriesController < ApplicationController
     redirect_to admin_countries_path
   end
 
-private
+  private
 
   def country_params
-    parmas.require(:country).permit(:name, :code, :active)
+    params.require(:country).permit(:name, :code, :active)
   end
 
   def find_country
     @country = Country.find(params[:id])
-  end
-
-  def require_admin
-    redirect_to root_path, flash: { danger: "Access Denied" } unless user_is_admin?
   end
 end

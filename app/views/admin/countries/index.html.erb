@@ -1,5 +1,5 @@
 <div class="mb-4 mt-2 clearfix">
-  <h1 class="d-inline-block mb-0">countries</h1>
+  <h1 class="d-inline-block mb-0">Countries</h1>
   <%= link_to '<i class="fa fa-plus"></i> New country'.html_safe, new_admin_country_path, class: "pull-right new-country-icon" %>
 </div>
 <table class="table table-striped ml-auto mr-auto text-center">
@@ -14,17 +14,15 @@
     </tr>
   </thead>
   <tbody>
-    <% serial_number = 1 %>
-    <% @countries.each do |country| %>
+    <% @countries.each.with_index(1) do |country, index| %>
       <tr>
-        <th scope="row"><%= serial_number %></th>
+        <th scope="row"><%= index %></th>
         <td><%= country.name %></td>
         <td><%= country.code %></td>
-        <td><%= country.active %></td>
+        <td><i class="fa <%= country.active ? "fa-check" : "fa-times" %>"></i></td>
         <td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_admin_country_path(country) %></td>
-        <td><%= delete_link country_path(country) %></td>
+        <td><%= delete_link admin_country_path(country) %></td>
       </tr>
-      <% serial_number += 1 %>
     <% end %>
   </tbody>
 </table>
