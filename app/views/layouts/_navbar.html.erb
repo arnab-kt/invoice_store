@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-lg">
-  <button type="button" id="sidebarCollapse" class="btn btn-light">
-    <i class="fas fa-align-left"></i>
-  </button>
-  <% if current_user %>
+    <button type="button" id="sidebar_collapse" class="btn btn-light">
+      <i class="fas fa-align-left"></i>
+    </button>
     <span class="ml-auto text-white"><%= current_user.first_name %></span>
-  <% end %>
 </nav>

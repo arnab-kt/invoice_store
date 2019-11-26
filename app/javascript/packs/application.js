@@ -18,7 +18,7 @@ require("channels")
 $(() => $(".fade").fadeOut(3000));
 
 $(document).ready(function() {
-  $('#sidebarCollapse').on('click', function() {
+  $('#sidebar_collapse').on('click', function() {
     $('#sidebar').toggleClass('active');
   });
 });
