@@ -15,5 +15,10 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-$(()=>$(".fade").fadeOut(3000));
-$(document).on("click", ".open-addSignInDialog");
+$(() => $(".fade").fadeOut(3000));
+
+$(document).ready(function() {
+  $('#sidebarCollapse').on('click', function() {
+    $('#sidebar').toggleClass('active');
+  });
+});
