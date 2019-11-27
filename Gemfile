@@ -6,6 +6,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "font-awesome-sass", "~> 5.11", ">= 5.11.2"
 gem "jbuilder", "~> 2.7"
 gem "omniauth-google-oauth2", "~> 0.8.0"
+gem "pagy", "~> 3.7"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 6.0.0"

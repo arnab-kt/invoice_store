@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalCenterTitle">Add Country</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<%= form_for [:admin, @country], remote: true do |f| %>
+  <div class="modal-body">
+    <%= render partial: "layouts/form_errors", locals: { model: @country } %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true, class: "form-control", placeholder: "Country Name", autocomplete: :off, maxlength: 255 %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :code %>
+      <%= f.text_field :code, required: true, class: "form-control", maxlength: 2, pattern: "[A-Za-z]{2}", placeholder: "Country Code", autocomplete: :off %>
+    </div>
+
+    <div class="form-check">
+      <%= f.check_box :active, class: "form-check-input" %>
+      <%= f.label :active, class: "form-check-label ml-2" %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Close">Close</button>
+    <%= f.submit class: "btn btn-primary", disabled_with: "Saving..." , title: "Save Country" %>
+  </div>
+<% end %>

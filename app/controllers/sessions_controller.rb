@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       flash[:danger] = "Could not sign in. Error-BAD DATA"
     end
 
-    redirect_to root_path
+    redirect_to admin_dashboard_path
   end
 
   def destroy
