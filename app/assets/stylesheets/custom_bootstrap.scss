@@ -1,0 +1,32 @@
+@import "variables";
+
+.btn-primary {
+  color: $background-color;
+  background-color: $primary-color-light;
+
+  &:hover,
+  &:focus {
+    color: $background-color;
+    background-color: $primary-color;
+  }
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+.fa-pencil-alt {
+  color: $primary-color;
+}
+
+.fa-trash {
+  color: $color-danger;
+}
+
+.fa-check-circle {
+  color: $primary-color;
+}
+
+.fa-times-circle {
+  color: $color-danger;
+}

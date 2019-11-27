@@ -13,8 +13,14 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg">
+        <div class="sidebar-header text-white">
+          <h4 class="m-0">
+            <%= link_to "Invoice Storage", root_path %>
+          </h4>
+        </div>
+
         <% if current_user %>
-          <%= link_to "Sign out", logout_path, class: "ml-auto text-white" %>
+          <%= link_to "Sign out", logout_path, method: :delete, class: "ml-auto text-white" %>
         <% else %>
           <a data-toggle="modal" class="ml-auto text-white" href="#sign_in_modal">Sign In</a>
         <% end %>

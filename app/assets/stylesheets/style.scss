@@ -1,3 +1,4 @@
+@import "variables";
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 body {
@@ -23,7 +24,7 @@ a:focus {
 
 .navbar {
   padding: 15px 10px;
-  background: #6D7FCC;
+  background: $primary-color;
   border: none;
   border-radius: 0;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -39,8 +40,8 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #7386D5;
-  color: #FFFFFF;
+  background: $primary-color-light;
+  color: $background-color;
   transition: all 0.3s;
 
   &.active {
@@ -49,7 +50,8 @@ a:focus {
 
   .sidebar-header {
     padding: 20px;
-    background: #6D7FCC;
+    background: $primary-color;
+    height: 68px;
   }
 
   ul {
@@ -65,16 +67,16 @@ a:focus {
     }
 
     li a:hover {
-      color: #7386D5;
-      background: #FFFFFF;
+      color: $primary-color-light;
+      background: $background-color;
     }
   }
 }
 
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
-  color: #FFFFFF;
-  background: #6D7FCC;
+  color: $background-color;
+  background: $primary-color;
 }
 
 a[data-toggle="collapse"] {
@@ -92,7 +94,7 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6D7FCC;
+  background: $primary-color;
 }
 
 /* CONTENT STYLE */
@@ -114,5 +116,16 @@ ul ul a {
 
   #sidebar_collapse span {
     display: none;
+  }
+}
+
+/* COUNTRY MODEL STYLES */
+.country-list-table thead {
+  tr {
+  border-top: none;
+  }
+
+  th {
+    color: $primary-color;
   }
 }
