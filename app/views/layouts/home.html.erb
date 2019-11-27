@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Invoice Store</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_include_tag "//code.jquery.com/jquery-3.2.1.min.js" %>
+    <%= javascript_include_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
+    <%= stylesheet_link_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <% if current_user %>
+          <%= link_to "Sign out", logout_path, class: "ml-auto text-white" %>
+        <% else %>
+          <a data-toggle="modal" class="ml-auto text-white" href="#sign_in_modal">Sign In</a>
+        <% end %>
+      </nav>
+    </header>
+    <main class="m-3">
+      <%= render "layouts/alerts" %>
+      <%= render "layouts/sign_in_modal" unless current_user %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

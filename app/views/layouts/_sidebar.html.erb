@@ -1,0 +1,21 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h4>
+      <%= link_to "Invoice Storage", root_path %>
+    </h4>
+  </div>
+
+  <ul class="list-unstyled components">
+    <li class="active">
+      <a href="#home_submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+      <ul class="collapse list-unstyled" id="home_submenu">
+        <li>
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="list-unstyled">
+    <li><%= link_to "Sign out", logout_path %></li>
+  </ul>
+</nav>

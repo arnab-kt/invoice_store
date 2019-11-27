@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>InvoiceStore</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Invoice Store</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= javascript_include_tag "//code.jquery.com/jquery-3.2.1.min.js" %>
-    <%= javascript_include_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
-    <%= stylesheet_link_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <%= render "layouts/navbar" %>
-    <main class="container">
+  <%= javascript_include_tag "//code.jquery.com/jquery-3.2.1.min.js" %>
+  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" %>
+  <%= javascript_include_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
+  <%= stylesheet_link_tag "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="wrapper">
+    <%= render "layouts/sidebar" %>
+
+    <div id="content">
+      <%= render "layouts/navbar" %>
       <%= render "layouts/alerts" %>
-      <%= yield %>
-    </main>
-  </body>
+
+      <div class="m-3">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
