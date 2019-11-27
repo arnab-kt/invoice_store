@@ -1,0 +1,38 @@
+<div class="mb-4 mt-2 clearfix">
+  <h3 class="d-inline-block mb-0">Countries</h3>
+  <%= link_to '<i class="far fa-plus"></i> Add new country'.html_safe, new_admin_country_path, data: { remote: true, 'data-toggle': "modal", 'data-target': '#CountryFormModal' },  class: "float-right btn btn-primary" %>
+</div>
+<div class="modal fade" id="CountryFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped text-center">
+    <thead>
+      <tr class="thead-light">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Status</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% serial_number = 1 %>
+      <% @countries.each do |country| %>
+      <tr>
+        <th scope="row"><%= serial_number %></th>
+        <td><%= country.name %></td>
+        <td><%= country.code %></td>
+        <td><%= country.active %></td>
+        <td><%= link_to ("Edit").html_safe, edit_admin_country_path(country), data: { remote: true, 'data-toggle': "modal", 'data-target': '#CountryFormModal' } %></td>
+        <td><%= delete_link admin_country_path(country) %></td>
+      </tr>
+      <% serial_number += 1%>
+      <% end %>
+    </tbody>
+  </table>
+</div>

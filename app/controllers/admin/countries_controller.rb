@@ -8,20 +8,28 @@ class Admin::CountriesController < ApplicationController
 
   def new
     @country = Country.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @country = Country.new(country_params)
-
     if @country.save
-      redirect_to admin_countries_path, flash: { success: "Successfully added a country" }
+      redirect_to admin_countries_path, flash: { success: "Successfully added a country"}
     else
       flash.now[:danger] = "Failed to add Country"
       render "new"
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @country.update(country_params)
@@ -34,6 +42,7 @@ class Admin::CountriesController < ApplicationController
 
   def destroy
     @country.destroy
+    flash[:success] = "Country deleted successfully"
     redirect_to admin_countries_path
   end
 
