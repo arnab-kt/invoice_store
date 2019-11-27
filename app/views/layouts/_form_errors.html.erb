@@ -1,7 +1,9 @@
 <% if model.errors.any? %>
-  <% model.errors.full_messages.each.with_index(1) do |msg, index| %>
-    <span class="text-danger"><%= index %>.
-      <%= msg %>.</span><br>
-  <% end %>
-  <br>
+  <div class="alert alert-danger" id="error_explaination">
+    <% model.errors.full_messages.each.with_index(1) do |msg, index| %>
+      <p class="text-danger">
+        <%= index %>. <%= msg %>.
+      </p>
+    <% end %>
+  </div>
 <% end %>

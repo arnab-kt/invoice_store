@@ -2,7 +2,7 @@ class Admin::CountriesController < Admin::AdminController
   before_action :find_country, only: [:edit, :update, :destroy]
 
   def index
-    @countries = Country.all
+    @pagy, @countries = pagy(Country.all, items: 20)
   end
 
   def new
@@ -19,8 +19,7 @@ class Admin::CountriesController < Admin::AdminController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @country.update(country_params)
