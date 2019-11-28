@@ -38,7 +38,7 @@ class Admin::CurrenciesController < ApplicationController
   private
 
   def currency_params
-    params.require(:currency).permit(:name, :code, :active)
+    params.require(:currency).permit(:name, :code, :symbol, :active)
   end
 
   def find_currency

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :countries, except: [:show]
+    resources :currencies, except: [:show]
 
     get "/dashboard", to: "admin#dashboard"
   end
